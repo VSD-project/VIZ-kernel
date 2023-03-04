@@ -3,11 +3,11 @@ import os
 import subprocess
 import importlib
 
-if os.path.isdir("bin"): os.rmdir("bin")
-os.mkdir("bin")
-
 def system(command):
     subprocess.run(command, shell=True, check=True)
+
+if os.path.isdir("bin"): system("rm -rf bin")
+os.mkdir("bin")
 
 class HELPER:
     bin_abs_path = str()
