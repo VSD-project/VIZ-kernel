@@ -8,4 +8,4 @@ class HELPER:
     def system(command): pass
 
 def main(helper: HELPER):
-    print("amd64 build working")
+    print("kernel build working")

@@ -3,36 +3,42 @@ import os
 import subprocess
 import importlib
 
-class HELPER:
-    bin_abs_path = str()
-    mod_abs_path = str()
-
-    def system(command): pass
-
-cpu_count = os.cpu_count()
+if os.path.isdir("bin"): os.rmdir("bin")
+os.mkdir("bin")
 
 def system(command):
     subprocess.run(command, shell=True, check=True)
 
-def compile(filename):
-    extension = filename.split(".")
-    path = extension[0].split("/")
+class HELPER:
+    bin_abs_path = str()
+    mod_abs_path = str()
+    cpu_count = int()
 
-    if extension[1] == "c":
-        system("gcc -I src/include -c " + filename + " -o bin/" + path[-1] + ".o")
-        print("[CC]  " + path[-1] + "." + extension[1])
+    class config: pass
 
-    if extension[1] == "s":
-        system("as -I include -c " + filename + " -o bin/" + path[-1] + ".o")
-        print("[C++] " + path[-1] + "." + extension[1])
+    def system(command): pass
 
-def compileDir(dir):
-    for file in os.listdir(dir):
-        if os.path.isdir(dir + "/" + file) == True:
-            #recursive time
-            compileDir(dir + "/" + file)
-        if os.path.isdir(dir + "/" + file) == False:
-            compile(dir + "/" + file)
+HELPER.cpu_count = os.cpu_count()
+HELPER.system = system
+HELPER.bin_abs_path = os.path.abspath("bin")
 
-if config.arch == "amd64": arch_module = importlib.import_module("arch.x86.build")
-else: arch_module = importlib.import_module(f"arch.{config.arch}.build")
+skip_dir = ["include", ".git", ".vscode", "bin", "__pycache__"]
+
+for dir in os.listdir("."):
+    if os.path.isdir(dir):
+        if dir in skip_dir: pass
+        
+        elif dir == "arch":
+            if config.CONFIG.arch == "amd64":
+                #build legacy x86 code
+                HELPER.mod_abs_path = os.path.abspath("arch/x86")
+                arch_module = importlib.import_module("arch.x86.build")
+                arch_module.main(HELPER)
+
+                #build actual amd64 code
+                HELPER.mod_abs_path = os.path.abspath("arch/x86/amd64")
+                arch_module = importlib.import_module(f"arch.x86.{config.CONFIG.arch}.build")
+                arch_module.main(HELPER)
+            else: HELPER.mod_abs_path = os.path.abspath(f"arch/{config.CONFIG.arch}"); arch_module = importlib.import_module(f"arch.{config.CONFIG.arch}.build"); arch_module.main(HELPER)
+        
+        else: HELPER.mod_abs_path = os.path.abspath(dir); module = importlib.import_module(f"{dir}.build"); module.main(HELPER)
