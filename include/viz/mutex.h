@@ -9,7 +9,7 @@
 #endif
 
 #ifndef HAS_ATOMIC_OPS
-#error COMPILER DOESNT DEFINE ATOMIC BUILTINS
+#error *** COMPILER DOESNT DEFINE ATOMIC BUILTINS
 #endif
 
 typedef struct {

@@ -4,7 +4,7 @@
 #include <viz/mutex.h>
 
 typedef struct {
-    mutex_t mutex
+    mutex_t mutex;
 }spinlock_t;
 
 void spin_lock_init(spinlock_t* lock);

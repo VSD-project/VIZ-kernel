@@ -3,12 +3,13 @@
 #ifndef VIZ_SERIO_H
 #define VIZ_SERIO_H
 
-#include <spinlock.h>
+#include <viz/spinlock.h>
 
 typedef struct {
-    void (*tx)(char byte) = 0;
-    void (*rx)(char byte);
+    char addr; //optional in most cases
+    void (*tx)(char byte);
+    char (*rx)(void);
     spinlock_t lock;
-}serio;
+}serio_t;
 
 #endif
