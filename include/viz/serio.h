@@ -6,8 +6,8 @@
 #include <spinlock.h>
 
 typedef struct {
-    void tx(char byte);
-    void rx(char byte);
+    void (*tx)(char byte) = 0;
+    void (*rx)(char byte);
     spinlock_t lock;
 }serio;
 
