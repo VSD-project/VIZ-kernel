@@ -15,4 +15,4 @@ def main(helper: HELPER):
         if os.path.isdir(f"{helper.mod_abs_path}/{file}") == False:
             if file.split(".")[-1] == "c":
                 print(f"[gcc] {file}")
-                helper.system(f"{helper.toolchain_prefix}-gcc -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/{file} -o {helper.bin_abs_path}/kernel_{file.split('.')[0]}.o")
+                helper.system(f"{helper.toolchain_prefix}-gcc -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/{file} -o {helper.bin_abs_path}/kernel_{file.split('.')[0]}.o {helper.config.cc_flags}")
