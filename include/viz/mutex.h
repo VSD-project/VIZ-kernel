@@ -9,11 +9,14 @@
 #endif
 
 #ifndef HAS_ATOMIC_OPS
-#error *** COMPILER DOESNT DEFINE ATOMIC BUILTINS
+#error COMPILER DOESNT DEFINE ATOMIC BUILTINS
 #endif
 
 typedef struct {
     int lock;
 }mutex_t;
 
+void mutex_init(mutex_t* mutex);
+void mutex_lock(mutex_t* mutex);
+void mutex_unlock(mutex_t* mutex);
 #endif
