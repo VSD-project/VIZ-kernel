@@ -13,6 +13,7 @@ class HELPER:
     bin_abs_path = str()
     mod_abs_path = str()
     cpu_count = int()
+    toolchain_prefix = str()
 
     class config: pass
 
@@ -21,6 +22,7 @@ class HELPER:
 HELPER.cpu_count = os.cpu_count()
 HELPER.system = system
 HELPER.bin_abs_path = os.path.abspath("bin")
+HELPER.toolchain_prefix = config.CONFIG.toolchain_prefix
 
 skip_dir = ["include", ".git", ".vscode", "bin", "__pycache__"]
 
