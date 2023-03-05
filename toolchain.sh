@@ -1,5 +1,7 @@
 #DO NOT RUN, THIS IS JUST FOR GITHUB WORKFLOWS
 
+sudo apt install libgmp-dev libmpfr-dev libmpc-dev
+
 cd ~
 mkdir build-gcc
 mkdir build-bin
