@@ -2,8 +2,13 @@
 kernel for the VSD project <br/>
 
 ## supported archs
-- [x] amd64(WIP)
-- [ ] ia-32 (partial, cannot boot)
+- [x] amd64 (WIP)
 - [ ] aarch64 (planned)
 - [ ] riscv64 (planned)
 
+Note: i686 is dead and has been for 2 decades, all i686 legacy crud that amd64 needs is handled in amd64 and a seperate arch will not be made <br/>
+
+## supported boot protocols
+- [x] vizboot (WIP)
+
+Currently the kernel gets bootstrapped by a chainloader module that translates another protocol to the vizboot protocol and parses it to the kernel
