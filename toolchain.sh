@@ -26,4 +26,4 @@ sudo make install -j 2
 
 export PATH="$HOME/toolchain/bin:$PATH"
 
-ls $PATH
+echo $PATH
