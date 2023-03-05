@@ -1,5 +1,5 @@
 //VIZ is designed around LP64
-// long and ponters are 64 bit big
+//long and pointers are 64 bit big
 
 #ifndef VIZ_STDINT_H
 #define VIZ_STDINT_H
