@@ -12,23 +12,17 @@ class HELPER:
 
 helper = HELPER
 
-#f"disable{abs_file_path.replace(os.path.abspath('.') , '').replace( '/','_' ).split('.')[0]}"
+def main(helper: HELPER):
+        
+    print(dir(helper.config))
 
-def compile(abs_file_path):
-    #print(f"disable{abs_file_path.replace(os.path.abspath('.') , '').replace( '/','_' ).split('.')[0]}")
-    for object in dir(helper.config):
-        #print(object)
-        pass
-    
-def recursive_compile(abs_folder_path):
-    for file in os.listdir(abs_folder_path):
-        if os.path.isdir(f"{abs_folder_path}/{file}"):
-            recursive_compile(f"{abs_folder_path}/{file}")
-        else:
-            compile(f"{abs_folder_path}/{file}")
+    pass
 
-
-def main(temp_helper: HELPER):
-    helper = temp_helper
-    recursive_compile(helper.mod_abs_path)
-    #print(dir(helper.config))
+'''
+def main(helper: HELPER):
+    for file in os.listdir(helper.mod_abs_path):
+        if os.path.isdir(f"{helper.mod_abs_path}/{file}") == False:
+            if file.split(".")[-1] == "c":
+                print(f"[gcc] {file}")
+                helper.system(f"{helper.config.cc_compiler} -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/{file} -o {helper.bin_abs_path}/driver_{file.split('.')[0]}.o {helper.config.cc_flags}")
+'''
