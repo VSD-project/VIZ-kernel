@@ -4,7 +4,7 @@
 #define VIZ_VIZBOOT_H
 
 typedef struct {
-    unsigned long addr;
+    void* addr;
     int width; //max x
     int height; // max y
     int pitch; // size of max y in bytes
@@ -18,5 +18,6 @@ typedef struct {
     vizboot_frambuffer_t *framebuffer;
 }vizboot_t;
 
+void k_setup(vizboot_t *vizboot);
 
 #endif

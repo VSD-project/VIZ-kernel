@@ -4,7 +4,8 @@
         "io.h": "c",
         "spinlock.h": "c",
         "mutex.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "vizboot.h": "c"
     },
     "C_Cpp.dimInactiveRegions": false
 }

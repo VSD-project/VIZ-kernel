@@ -34,3 +34,5 @@ for dir in os.listdir("."):
         elif dir == "arch": HELPER.mod_abs_path = os.path.abspath(f"arch/{config.CONFIG.arch}"); arch_module = importlib.import_module(f"arch.{config.CONFIG.arch}.build"); arch_module.main(HELPER)
         
         else: HELPER.mod_abs_path = os.path.abspath(dir); module = importlib.import_module(f"{dir}.build"); module.main(HELPER)
+
+system(f"{config.CONFIG.ld} -T kernel.ld -o vizkern.bin bin/*.o")
