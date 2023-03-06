@@ -14,7 +14,7 @@ helper = HELPER
 
 def main(helper: HELPER):
         
-    print(dir(helper.config))
+    #print(dir(helper.config))
 
     pass
 
