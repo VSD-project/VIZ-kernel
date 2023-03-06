@@ -3,6 +3,8 @@
 #ifndef VIZ_VIZBOOT_H
 #define VIZ_VIZBOOT_H
 
+#include <viz/stdint.h>
+
 typedef struct {
     void* addr;
     int width; //max x
@@ -15,7 +17,7 @@ typedef struct {
 
 typedef struct {
     int magic; //should be 0xFACDFACD
-    vizboot_frambuffer_t *framebuffer;
+    vizboot_frambuffer_t framebuffer;
 }vizboot_t;
 
 void k_setup(vizboot_t *vizboot);

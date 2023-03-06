@@ -3,7 +3,7 @@
 
 void k_setup(vizboot_t *vizboot) {
     
-    unsigned long *framebuffer = (unsigned long*)vizboot->framebuffer->addr;
+    int *framebuffer = vizboot->framebuffer.addr;
 
     framebuffer[0] = 255;
     framebuffer[1] = 255; 
