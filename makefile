@@ -17,4 +17,4 @@ debugiso: all
 	limine-deploy viz.iso
 
 qemu:
-	qemu-system-x86_64 -bios bios64.bin -cdrom viz.iso
+	qemu-system-x86_64 -bios bios64.bin -cdrom viz.iso -vga std

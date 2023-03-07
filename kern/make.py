@@ -35,4 +35,5 @@ for dir in os.listdir("."):
         
         else: HELPER.mod_abs_path = os.path.abspath(dir); module = importlib.import_module(f"{dir}.build"); module.main(HELPER)
 
+print(f"[{config.CONFIG.ld}] -T kernel.ld -o vizkern.bin bin/*.o")
 system(f"{config.CONFIG.ld} -T kernel.ld -o vizkern.bin bin/*.o")
