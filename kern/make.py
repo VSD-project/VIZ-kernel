@@ -6,6 +6,12 @@ import importlib
 def system(command):
     subprocess.run(command, shell=True, check=True)
 
+def read_config(filename):
+    with open(filename, 'r') as file:
+        contents = file.read()
+        contents = contents.replace('\n', ' ')
+        return contents
+
 if os.path.isdir("bin"): system("rm -rf bin")
 os.mkdir("bin")
 
@@ -18,12 +24,14 @@ class HELPER:
     class config: pass
 
     def system(command): pass
+    def read_config(file): pass
 
 HELPER.cpu_count = os.cpu_count()
 HELPER.system = system
 HELPER.bin_abs_path = os.path.abspath("bin")
 HELPER.toolchain_prefix = config.CONFIG.toolchain_prefix
 HELPER.config = config.CONFIG
+HELPER.read_config = read_config
 
 skip_dir = ["include", ".git", ".vscode", "bin", "__pycache__", ".github"]
 

@@ -14,5 +14,3 @@ class CONFIG:
 
     #even if a driver disable is set to false, aslong as the disable is defined, the driver will still be disabled
     #mark a disable as a comment to enable the driver instead of using false
-    
-    disable_driver_tty = False

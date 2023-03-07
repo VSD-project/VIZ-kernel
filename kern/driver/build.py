@@ -9,22 +9,7 @@ class HELPER:
     class config: pass
 
     def system(command): pass
-
-helper = HELPER
+    def read_config(file): pass
 
 def main(helper: HELPER):
-        
-    if helper.config.disable_driver_tty == False:
-        print(f"[gcc] tty.c")
-        helper.system(f"{helper.config.cc_compiler} -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/tty/tty.c -o {helper.bin_abs_path}/driver_tty_tty.o {helper.config.cc_flags}")
-
-    pass
-
-'''
-def main(helper: HELPER):
-    for file in os.listdir(helper.mod_abs_path):
-        if os.path.isdir(f"{helper.mod_abs_path}/{file}") == False:
-            if file.split(".")[-1] == "c":
-                print(f"[gcc] {file}")
-                helper.system(f"{helper.config.cc_compiler} -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/{file} -o {helper.bin_abs_path}/driver_{file.split('.')[0]}.o {helper.config.cc_flags}")
-'''
+    print(helper.read_config("driver.config"))
