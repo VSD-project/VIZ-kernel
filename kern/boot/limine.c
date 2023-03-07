@@ -18,8 +18,10 @@ void _start(void) {
     translated_protocol.framebuffer.width = framebuffer_request.response->framebuffers[0]->width;
     translated_protocol.framebuffer.height = framebuffer_request.response->framebuffers[0]->height;
     translated_protocol.framebuffer.pitch = framebuffer_request.response->framebuffers[0]->pitch;
-    translated_protocol.framebuffer.pixel_width = framebuffer_request.response->framebuffers[0]->bpp / 8;
-    translated_protocol.framebuffer.depth = 0;
+    translated_protocol.framebuffer.pixel_width = framebuffer_request.response->framebuffers[0]->bpp / 8 / 3;
+    translated_protocol.framebuffer.depth = framebuffer_request.response->framebuffers[0]->bpp / 3;
+
+    translated_protocol.magic = 0xFACDFACD;
 
     k_setup(&translated_protocol);
 

@@ -14,7 +14,9 @@ helper = HELPER
 
 def main(helper: HELPER):
         
-    #print(dir(helper.config))
+    if helper.config.disable_driver_tty == False:
+        print(f"[gcc] tty.c")
+        helper.system(f"{helper.config.cc_compiler} -I {helper.mod_abs_path}/../include -c {helper.mod_abs_path}/tty/tty.c -o {helper.bin_abs_path}/driver_tty_tty.o {helper.config.cc_flags}")
 
     pass
 

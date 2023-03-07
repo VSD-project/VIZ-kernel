@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "vizboot.h": "c"
+        "vizboot.h": "c",
+        "limine.h": "c"
     }
 }
