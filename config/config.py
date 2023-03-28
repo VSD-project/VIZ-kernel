@@ -7,6 +7,8 @@ thumbv6m-none-eabi
 
 '''
 
+arch = "arm32"
+
 target = "thumbv6m-none-eabi"
 mcpu = "cortex-m0plus" #can just be an empty string
 
