@@ -1,2 +1,2 @@
 all:
-	python make.py
+	python3 make.py
