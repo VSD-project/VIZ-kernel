@@ -7,6 +7,8 @@ thumbv6m-none-eabi
 
 '''
 
+load_kernel_into_addr = 0x20000000
+
 arch = "arm32"
 
 target = "thumbv6m-none-eabi"
