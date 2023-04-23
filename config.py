@@ -1,0 +1,5 @@
+ARCH = "amd64"
+CC = "clang --target=x86_64-unknown-none-elf"
+CCFLAGS = f"-ffreestanding -mno-red-zone -fno-stack-protector -nostdlib -nostdinc -O2 -mcmodel=kernel -DVIZ_ARCH_{ARCH} -I."
+LD = "ld.lld"
+LD_FLAGS = ""

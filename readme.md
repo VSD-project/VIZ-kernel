@@ -17,3 +17,13 @@ drivers - cross platform drivers (pci/e)
 fs - handles filesystems, both real(drives) and virtual(devfs)
 kernel - middle man code to bind driver/arch code to a standard api, also handles multiple protocols
 ```
+
+## boot to userspace todo list
+- [x] boot
+- [ ] setup early tty console for kernel
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]

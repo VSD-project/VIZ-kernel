@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "drivers.h": "c"
+        "drivers.h": "c",
+        "driver.h": "c",
+        "config.h": "c",
+        "stdint.h": "c",
+        "init.h": "c",
+        "limine.h": "c"
     }
 }

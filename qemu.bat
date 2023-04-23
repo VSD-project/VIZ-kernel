@@ -1,0 +1,1 @@
+qemu-system-x86_64 -bios bios64.bin -cdrom viz.iso -serial stdio
