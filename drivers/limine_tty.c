@@ -1,4 +1,5 @@
 //limine fb to virtual tty console
+#ifdef VIZ_ARCH_amd64
 #include <viz/driver.h>
 #include <viz/limine.h>
 
@@ -14,7 +15,7 @@ int driver_limine_virt_tty_init(void) {
 
     for (int y = 0; y < driver_limine_tty_framebuffer_request.response->framebuffers[0]->height; y++) {
         for (int x = 0; x < driver_limine_tty_framebuffer_request.response->framebuffers[0]->width; x++) {
-            fb[x + (y * driver_limine_tty_framebuffer_request.response->framebuffers[0]->width)] = 0x303040;
+            fb[x + (y * driver_limine_tty_framebuffer_request.response->framebuffers[0]->width)] = 0x000000;
         }
     }
 
@@ -26,3 +27,4 @@ driver_definition driver_limine_virt_tty = {
     .device_type = DEV_TTY,
     .init_ptr = &driver_limine_virt_tty_init
 };
+#endif
