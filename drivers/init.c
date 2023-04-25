@@ -1,12 +1,11 @@
 #include <viz/init.h>
 #include <viz/driver.h>
 #include <viz/stdint.h>
-
-extern uint64_t driver_start;
-extern uint64_t driver_end;
+#include <viz/KERNEL_DRIVER_MAP.h>
 
 void driver_subsystem_init(void) {    
-    driver_definition *x = (driver_definition *)&driver_start;
-    x->init_ptr();
+    for (uint32_t x = 0; x < KERNEL_DRIVER_MAP_SIZE; x++) {
+        KERNEL_DRIVER_MAP[x]->init_ptr();
+    }
     
 }

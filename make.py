@@ -1,6 +1,7 @@
 import config
 import os
 import subprocess
+import build.elf as elf
 
 def compile(file: str):
     file_extension = file.split(".")[-1]
@@ -24,4 +25,10 @@ compile_dir(f"arch/{config.ARCH}")
 compile_dir(f"init")
 compile_dir(f"drivers")
 
-subprocess.run(f"{config.LD} {config.LD_FLAGS} -T kernel.ld bin/* -o viz.bin", shell=True)
+subprocess.run(f"{config.LD} {config.LD_FLAGS} -r bin/* -o kernel.o", shell=True)
+
+#build driver map from kernel object
+print("[DRIVER_MAP] building KERNEL_DRIVER_MAP object")
+elf.test()
+subprocess.run(f"{config.CC} {config.CCFLAGS} -c build/KERNEL_DRIVER_MAP.c -o driver_map.o", shell=True)
+subprocess.run(f"{config.LD} {config.LD_FLAGS} -T kernel.ld driver_map.o kernel.o -o viz.bin", shell=True)

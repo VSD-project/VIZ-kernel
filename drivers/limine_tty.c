@@ -26,5 +26,3 @@ driver_definition driver_limine_virt_tty = {
     .device_type = DEV_TTY,
     .init_ptr = &driver_limine_virt_tty_init
 };
-
-const uint64_t driver_limine_virt_tty_pointer __attribute__((section("drivers"))) = (uint64_t)&driver_limine_virt_tty;
